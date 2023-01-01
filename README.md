@@ -145,7 +145,7 @@ quicksilverd tx staking edit-validator \
   --from=quick164kd2jgy4evt0zrl8z8nd3hspp777v8s290hnz
 ```
 ```
-planqd tx distribution withdraw-rewards quickvaloper164kd2jgy4evt0zrl8z8nd3hspp777v8s5gp6at --from=quick164kd2jgy4evt0zrl8z8nd3hspp777v8s290hnz --commission --chain-id=$PLANQ_CHAIN_ID
+planqd tx distribution withdraw-rewards plqvaloper1tsrnkfqelmz4ggu2pygdxww3hupqv9x4mdjlar --from=plq1tsrnkfqelmz4ggu2pygdxww3hupqv9x49nl9mj --commission --chain-id=$PLANQ_CHAIN_ID
 ```
 ```
 for i in {1..10}; do quicksilverd status --node https://quicksilver-testnet.rpc.kjnodes.com/ | jq .SyncInfo.latest_block_height && quicksilverd status | jq .SyncInfo.latest_block_height; sleep 6; done
