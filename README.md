@@ -132,8 +132,7 @@ planqd tx staking create-validator \
   --moniker $NODENAME \
   --chain-id $PLANQ_CHAIN_ID \
   --security-contact="vova1node@gmail.com" \
-  --gas auto \
-  --fees 500aplanq
+  --gas 1000000
 ```                  
 
 ```
