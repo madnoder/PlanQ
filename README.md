@@ -40,7 +40,7 @@ planqd config keyring-backend test
 planqd init $NODENAME --chain-id $CHAIN_ID
 ```
 ```
-curl -o $HOME/.planqd/config/genesis.json https://github.com/planq-network/networks/blob/main/mainnet/genesis.json
+curl -o $HOME/.planqd/config/genesis.json "https://github.com/planq-network/networks/blob/main/mainnet/genesis.json"
 ```
 ```
 planqd keys add $WALLET
@@ -70,6 +70,9 @@ sed -i.bak -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.0001uqck\"/;"
 ```
 export SEEDS="dd2f0ceaa0b21491ecae17413b242d69916550ae@135.125.247.70:26656,0525de7e7640008d2a2e01d1a7f6456f28f3324c@51.79.142.6:26656,7c10b1a106a512976e8d71effe5c086327458eef@35.200.183.35:26656"
 sed -i.bak -e "s/^seeds *=.*/seeds = \"$SEEDS\"/" ~/.planqd/config/config.toml
+```
+```
+wget -qO $HOME/.planqd/config/genesis.json "https://github.com/planq-network/networks/blob/main/mainnet/addrbook.json"
 ```
 ```
 sudo tee /etc/systemd/system/planqd.service > /dev/null <<EOF
