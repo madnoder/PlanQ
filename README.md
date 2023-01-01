@@ -72,7 +72,7 @@ export SEEDS="dd2f0ceaa0b21491ecae17413b242d69916550ae@135.125.247.70:26656,0525
 sed -i.bak -e "s/^seeds *=.*/seeds = \"$SEEDS\"/" ~/.planqd/config/config.toml
 ```
 ```
-wget -qO $HOME/.planqd/config/genesis.json "https://github.com/planq-network/networks/blob/main/mainnet/addrbook.json"
+wget -qO $HOME/.planqd/config/addrbook.json "https://github.com/planq-network/networks/blob/main/mainnet/addrbook.json"
 ```
 ```
 sudo tee /etc/systemd/system/planqd.service > /dev/null <<EOF
@@ -100,37 +100,37 @@ sudo systemctl restart planqd && sudo journalctl -u planqd -f -o cat
 source $HOME/.bash_profile
 ```
 ```                                                               
-quicksilverd status 2>&1 | jq .SyncInfo
+planqd status 2>&1 | jq .SyncInfo
 ```
 ```  
-QUICKSILVER_WALLET_ADDRESS=$(quicksilverd keys show $WALLET -a)
-QUICKSILVER_VALOPER_ADDRESS=$(quicksilverd keys show $WALLET --bech val -a)
-echo 'export QUICKSILVER_ADDRESS='${QUICKSILVER_WALLET_ADDRESS} >> $HOME/.bash_profile
-echo 'export QUICKSILVER_VALOPER_ADDRESS='${QUICKSILVER_VALOPER_ADDRESS} >> $HOME/.bash_profile
+PLANQ_WALLET_ADDRESS=$(planqd keys show $WALLET -a)
+PLANQ_VALOPER_ADDRESS=$(planqd keys show $WALLET --bech val -a)
+echo 'export PLANQ_ADDRESS='${PLANQ_WALLET_ADDRESS} >> $HOME/.bash_profile
+echo 'export PLANQ_VALOPER_ADDRESS='${PLANQ_VALOPER_ADDRESS} >> $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
 ```  
-quicksilverd keys list
+planqd keys list
 ```  
 ```  
 ```  
 ```  
-quicksilverd query bank balances $QUICKSILVER_WALLET_ADDRESS
+planqd query bank balances $PLANQ_WALLET_ADDRESS
 ```  
 ```  
-quicksilverd tx staking create-validator \
-  --amount 50000000uqck \
+planqd tx staking create-validator \
+  --amount 50000000aplanq \
   --from $WALLET \
   --commission-max-change-rate "0.01" \
   --commission-max-rate "0.1" \
-  --commission-rate "0.07" \
+  --commission-rate "0.08" \
   --min-self-delegation "1" \
-  --pubkey  $(quicksilverd tendermint show-validator) \
+  --pubkey  $(planqd tendermint show-validator) \
   --identity=B08700D1C239CD1A \
   --website="https://github.com/madnoder" \
   --details="Cosmos validator" \
   --moniker $NODENAME \
-  --chain-id $QUICKSILVER_CHAIN_ID \
+  --chain-id $PLANQ_CHAIN_ID \
   --security-contact="vova1node@gmail.com" \
   --gas auto
 ```                  
