@@ -135,13 +135,13 @@ planqd tx staking create-validator \
 ```                  
 
 ```
-planqd tx staking delegate $PLANQ_VALOPER_ADDRESS 601330uqck --from=$WALLET --chain-id=$PLANQ_CHAIN_ID --gas auto
+planqd tx staking delegate $PLANQ_VALOPER_ADDRESS 10000aplanq --from=$WALLET --chain-id=$PLANQ_CHAIN_ID --gas auto
 ```
 ```
-quicksilverd tx staking edit-validator \
+planqd tx staking edit-validator \
   --new-moniker="Mad as a hatter" \
-  --chain-id=quicksilver-1 \
-  --from=quick164kd2jgy4evt0zrl8z8nd3hspp777v8s290hnz
+  --chain-id $PLANQ_CHAIN_ID \
+  --from=plq1tsrnkfqelmz4ggu2pygdxww3hupqv9x49nl9mj
 ```
 ```
 planqd tx distribution withdraw-rewards plqvaloper1tsrnkfqelmz4ggu2pygdxww3hupqv9x4mdjlar --from=plq1tsrnkfqelmz4ggu2pygdxww3hupqv9x49nl9mj --commission --chain-id=$PLANQ_CHAIN_ID
