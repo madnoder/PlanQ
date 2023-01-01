@@ -119,7 +119,7 @@ planqd query bank balances $PLANQ_WALLET_ADDRESS
 ```  
 ```  
 planqd tx staking create-validator \
-  --amount 50000000aplanq \
+  --amount 2200000000000000000aplanq \
   --from $WALLET \
   --commission-max-change-rate "0.01" \
   --commission-max-rate "0.1" \
