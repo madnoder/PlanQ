@@ -136,7 +136,7 @@ planqd tx staking create-validator \
 ```                  
 
 ```
-quicksilverd tx staking delegate $QUICKSILVER_VALOPER_ADDRESS 601330uqck --from=$WALLET --chain-id=$QUICKSILVER_CHAIN_ID --gas auto
+planqd tx staking delegate $PLANQ_VALOPER_ADDRESS 601330uqck --from=$WALLET --chain-id=$PLANQ_CHAIN_ID --gas auto
 ```
 ```
 quicksilverd tx staking edit-validator \
@@ -145,7 +145,7 @@ quicksilverd tx staking edit-validator \
   --from=quick164kd2jgy4evt0zrl8z8nd3hspp777v8s290hnz
 ```
 ```
-quicksilverd tx distribution withdraw-rewards quickvaloper164kd2jgy4evt0zrl8z8nd3hspp777v8s5gp6at --from=quick164kd2jgy4evt0zrl8z8nd3hspp777v8s290hnz --commission --chain-id=$QUICKSILVER_CHAIN_ID
+planqd tx distribution withdraw-rewards quickvaloper164kd2jgy4evt0zrl8z8nd3hspp777v8s5gp6at --from=quick164kd2jgy4evt0zrl8z8nd3hspp777v8s290hnz --commission --chain-id=$PLANQ_CHAIN_ID
 ```
 ```
 for i in {1..10}; do quicksilverd status --node https://quicksilver-testnet.rpc.kjnodes.com/ | jq .SyncInfo.latest_block_height && quicksilverd status | jq .SyncInfo.latest_block_height; sleep 6; done
