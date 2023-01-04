@@ -161,3 +161,11 @@ mv $HOME/.planqd/priv_validator_state.json.backup $HOME/.planqd/data/priv_valida
 ```
 sudo systemctl restart planqd && journalctl -u planqd -f --no-hostname -o cat
 ```
+
+```
+planqd tx distribution withdraw-rewards plqvaloper1tsrnkfqelmz4ggu2pygdxww3hupqv9x4mdjlar --from=plq1tsrnkfqelmz4ggu2pygdxww3hupqv9x49nl9mj --commission --chain-id=$PLANQ_CHAIN_ID --gas="1000000" --gas-prices="30000000000aplanq" --gas-adjustment="1.15"
+```
+
+```
+planqd tx staking delegate $(planqd keys show wallet --bech val -a) 270000000000000000aplanq --gas="1000000" --gas-prices="30000000000aplanq" --gas-adjustment="1.15" --chain-id=planq_7070-2 --from plq1tsrnkfqelmz4ggu2pygdxww3hupqv9x49nl9mj
+```
