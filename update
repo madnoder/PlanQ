@@ -1,0 +1,9 @@
+```
+systemctl stop planqd
+cd $HOME && rm -rf planq
+git clone https://github.com/planq-network/planq && cd planq
+git checkout v1.0.3
+make install
+```
+systemctl restart planqd && journalctl -u planqd -f -o cat
+```
