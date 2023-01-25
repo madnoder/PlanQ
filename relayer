@@ -1,0 +1,44 @@
+```
+mkdir -p $HOME/.hermes/bin
+```
+```
+wget https://github.com/informalsystems/ibc-rs/releases/download/v1.0.0-rc.1/hermes-v1.0.0-rc.1-x86_64-unknown-linux-gnu.tar.gz && \
+tar -C $HOME/.hermes/bin/ -vxzf hermes-v1.0.0-rc.1-x86_64-unknown-linux-gnu.tar.gz && \
+echo 'export PATH="$HOME/.hermes/bin:$PATH"' >> $HOME/.bash_profile && \
+source $HOME/.bash_profile
+```
+```
+hermes version
+```
+```
+hermes config validate
+```
+```
+hermes health-check
+```
+
+
+### Planq - Osmo
+```
+hermes tx ft-transfer --timeout-height-offset 10 --number-msgs 1 --dst-chain osmosis-1 --src-chain planq_7070-2 --src-port transfer --src-channel channel-1 --amount 1 --denom aplanq
+```
+### Planq - CosmosHub
+```
+hermes tx ft-transfer --timeout-height-offset 10 --number-msgs 1 --dst-chain cosmoshub-4 --src-chain planq_7070-2 --src-port transfer --src-channel channel-2 --amount 1 --denom aplanq
+```
+### Planq - Gravity
+```
+hermes tx ft-transfer --timeout-height-offset 10 --number-msgs 1 --dst-chain gravity-bridge-3 --src-chain planq_7070-2 --src-port transfer --src-channel channel-0 --amount 1 --denom aplanq
+```
+### Planq - Umee
+```
+hermes tx ft-transfer --timeout-height-offset 10 --number-msgs 1 --dst-chain umee-1 --src-chain planq_7070-2 --src-port transfer --src-channel channel-22 --amount 1 --denom aplanq
+```
+### Planq - Kuji
+```
+hermes tx ft-transfer --timeout-height-offset 10 --number-msgs 1 --dst-chain kaiyo-1 --src-chain planq_7070-2 --src-port transfer --src-channel channel-23 --amount 1 --denom aplanq
+```
+### Planq - Secret
+```
+hermes tx ft-transfer --timeout-height-offset 10 --number-msgs 1 --dst-chain secret-4 --src-chain planq_7070-2 --src-port transfer --src-channel channel-32 --amount 1 --denom aplanq
+```
