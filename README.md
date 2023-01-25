@@ -136,6 +136,7 @@ planqd tx distribution withdraw-rewards $(planqd keys show wallet --bech val -a)
 ```
 planqd tx staking delegate $(planqd keys show wallet --bech val -a) <YOUR SUM>aplanq --gas="1000000" --gas-prices="30000000000aplanq" --gas-adjustment="1.15" --chain-id=planq_7070-2 --from wallet
 ```
+```
 planqd tx staking edit-validator \
   --new-moniker="Mad as a hatter" \
   --chain-id $PLANQ_CHAIN_ID \
