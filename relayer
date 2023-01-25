@@ -3,10 +3,19 @@ mkdir -p $HOME/.hermes/bin
 ```
 ```
 wget https://github.com/informalsystems/hermes/releases/download/v1.2.0/hermes-v1.2.0-x86_64-unknown-linux-gnu.tar.gz && \
-tar -C $HOME/.hermes/bin/ -vxzf hermes-v1.2.0-rc.1-x86_64-unknown-linux-gnu.tar.gz && \
+tar -C $HOME/.hermes/bin/ -vxzf hermes-v1.2.0-x86_64-unknown-linux-gnu.tar.gz && \
 echo 'export PATH="$HOME/.hermes/bin:$PATH"' >> $HOME/.bash_profile && \
 source $HOME/.bash_profile
 ```
+
+
+
+wget -nv https://github.com/informalsystems/hermes/releases/download/v1.2.0/hermes-v1.2.0-x86_64-unknown-linux-gnu.tar.gz
+mkdir -p $HOME/.hermes/bin
+tar -C $HOME/.hermes/bin/ -vxzf hermes-v1.2.0-x86_64-unknown-linux-gnu.tar.gz
+echo 'export PATH="$HOME/.hermes/bin:$PATH"' >> $HOME/.bash_profile
+source $HOME/.bash_profile
+
 ```
 hermes version
 ```
