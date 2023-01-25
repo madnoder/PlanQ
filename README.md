@@ -3,7 +3,7 @@
 # PlanQ Main
 
 ```
-NODENAME=Mad
+NODENAME=<YOUR MONIKER HERE>
 ```
 ```
 PLANQ_PORT=17
@@ -44,8 +44,6 @@ curl -o $HOME/.planqd/config/genesis.json "https://github.com/planq-network/netw
 ```
 ```
 planqd keys add $WALLET
-```
-```
 ```
 ```
 sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:17658\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:17657\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:1760\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:17656\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \»:17660\"%" $HOME/.planqd/config/config.toml && sed -i.bak -e "s%^address = \"0.0.0.0:9090\"%address = \»0.0.0.0:17090\"%; s%^address = \"0.0.0.0:9091\"%address = \»0.0.0.0:17091\"%; s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:1717\"%" $HOME/.planqd/config/app.toml && sed -i.bak -e "s%^node = \"tcp://localhost:26657\"%node = \"tcp://localhost:17657\"%" $HOME/.planqd/config/client.toml
@@ -112,8 +110,6 @@ source $HOME/.bash_profile
 planqd keys list
 ```  
 ```  
-```  
-```  
 planqd query bank balances $PLANQ_WALLET_ADDRESS
 ```  
 ```  
@@ -135,8 +131,10 @@ planqd tx staking create-validator \
 ```                  
 
 ```
-planqd tx staking delegate $PLANQ_VALOPER_ADDRESS 10000aplanq --from=$WALLET --chain-id=$PLANQ_CHAIN_ID --gas auto
+planqd tx distribution withdraw-rewards $(planqd keys show wallet --bech val -a) --commission --gas="1000000" --gas-adjustment="1.15" --gas-prices="30000000000aplanq" --chain-id planq_7070-2 --from wallet
 ```
+```
+planqd tx staking delegate $(planqd keys show wallet --bech val -a) <YOUR SUM>aplanq --gas="1000000" --gas-prices="30000000000aplanq" --gas-adjustment="1.15" --chain-id=planq_7070-2 --from wallet
 ```
 planqd tx staking edit-validator \
   --new-moniker="Mad as a hatter" \
@@ -144,28 +142,6 @@ planqd tx staking edit-validator \
   --from=plq1tsrnkfqelmz4ggu2pygdxww3hupqv9x49nl9mj
 ```
 ```
-planqd tx distribution withdraw-rewards plqvaloper1tsrnkfqelmz4ggu2pygdxww3hupqv9x4mdjlar --from=plq1tsrnkfqelmz4ggu2pygdxww3hupqv9x49nl9mj --commission --chain-id=$PLANQ_CHAIN_ID --gas="1000000" --gas-prices="30000000000aplanq" --gas-adjustment="1.15"
-```
-```
-for i in {1..10}; do quicksilverd status --node https://quicksilver-testnet.rpc.kjnodes.com/ | jq .SyncInfo.latest_block_height && quicksilverd status | jq .SyncInfo.latest_block_height; sleep 6; done
-```
-```
-sudo systemctl stop planqd
-cp $HOME/.planqd/data/priv_validator_state.json $HOME/.planqd/priv_validator_state.json.backup
-rm -rf $HOME/.planqd/data
-```
-```
-curl -L https://snapshot.planq.indonode.net/planq-snapshot-2022-12-31.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.planqd
-mv $HOME/.planqd/priv_validator_state.json.backup $HOME/.planqd/data/priv_validator_state.json
-```
-```
 sudo systemctl restart planqd && journalctl -u planqd -f --no-hostname -o cat
 ```
 
-```
-planqd tx distribution withdraw-rewards plqvaloper1tsrnkfqelmz4ggu2pygdxww3hupqv9x4mdjlar --from=plq1tsrnkfqelmz4ggu2pygdxww3hupqv9x49nl9mj --commission --chain-id=$PLANQ_CHAIN_ID --gas="1000000" --gas-prices="30000000000aplanq" --gas-adjustment="1.15"
-```
-
-```
-planqd tx staking delegate $(planqd keys show wallet --bech val -a) 270000000000000000aplanq --gas="1000000" --gas-prices="30000000000aplanq" --gas-adjustment="1.15" --chain-id=planq_7070-2 --from plq1tsrnkfqelmz4ggu2pygdxww3hupqv9x49nl9mj
-```
