@@ -1,21 +1,11 @@
 ```
 mkdir -p $HOME/.hermes/bin
-```
-```
-wget https://github.com/informalsystems/hermes/releases/download/v1.2.0/hermes-v1.2.0-x86_64-unknown-linux-gnu.tar.gz && \
-tar -C $HOME/.hermes/bin/ -vxzf hermes-v1.2.0-x86_64-unknown-linux-gnu.tar.gz && \
+
+wget https://github.com/informalsystems/ibc-rs/releases/download/v1.0.0-rc.1/hermes-v1.0.0-rc.1-x86_64-unknown-linux-gnu.tar.gz && \
+tar -C $HOME/.hermes/bin/ -vxzf hermes-v1.0.0-rc.1-x86_64-unknown-linux-gnu.tar.gz && \
 echo 'export PATH="$HOME/.hermes/bin:$PATH"' >> $HOME/.bash_profile && \
 source $HOME/.bash_profile
 ```
-
-
-
-wget -nv https://github.com/informalsystems/hermes/releases/download/v1.2.0/hermes-v1.2.0-x86_64-unknown-linux-gnu.tar.gz
-mkdir -p $HOME/.hermes/bin
-tar -C $HOME/.hermes/bin/ -vxzf hermes-v1.2.0-x86_64-unknown-linux-gnu.tar.gz
-echo 'export PATH="$HOME/.hermes/bin:$PATH"' >> $HOME/.bash_profile
-source $HOME/.bash_profile
-
 ```
 hermes version
 ```
@@ -25,7 +15,39 @@ hermes config validate
 ```
 hermes health-check
 ```
+```
+MNEMONIC='...'
+CHAIN_ID=planq_7070-2
 
+echo "$MNEMONIC" > $HOME/.hermes.mnemonic
+hermes keys add --chain "$CHAIN_ID" --mnemonic-file $HOME/.hermes.mnemonic
+rm $HOME/.hermes.mnemonic
+```
+```
+sed -i -e 's|^indexer *=.*|indexer = "kv"|' $HOME/.planqd/config/config.toml
+```
+```
+sudo tee /etc/systemd/system/hermesd.service > /dev/null <<EOF
+[Unit]
+Description=hermes
+After=network-online.target
+
+[Service]
+User=$USER
+ExecStart=$(which hermes) start
+Restart=on-failure
+RestartSec=3
+LimitNOFILE=65535
+
+[Install]
+WantedBy=multi-user.target
+EOF
+```
+```
+sudo systemctl daemon-reload
+sudo systemctl enable hermesd
+sudo systemctl restart hermesd && journalctl -u hermesd -f -o cat
+```
 
 ### Planq - Osmo
 ```
@@ -50,4 +72,7 @@ hermes tx ft-transfer --timeout-height-offset 10 --number-msgs 1 --dst-chain kai
 ### Planq - Secret
 ```
 hermes tx ft-transfer --timeout-height-offset 10 --number-msgs 1 --dst-chain secret-4 --src-chain planq_7070-2 --src-port transfer --src-channel channel-32 --amount 1 --denom aplanq
+```
+```
+hermes tx ft-transfer --timeout-height-offset 10 --number-msgs 1 --dst-chain stride-1 --src-chain planq_7070-2 --src-port transfer --src-channel channel-8 --amount 1 --denom aplanq
 ```
