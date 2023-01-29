@@ -1,6 +1,17 @@
-# PlanQ
+# PlanQ Network
+## The blockchain cosmos on your phone
 
-# PlanQ Main
+<h1>
+<div id="header" align="center">
+  <img src="https://github.com/madnoder/PlanQ/blob/main/planq-logo.svg" style="max-width: 100%;"></a></p>
+</div>
+
+## Off Link:
+<a href="https://discord.gg/planq-network"> <p style="font-size:55px;color:red;"> Discord </p> </a>
+<a href="https://planq.network/" style="font-size: 30px;"> Website </a>
+
+You can also delegate to my validator with 100% uptime.
+<a href="https://explorer.planq.network/validators/plqvaloper1tsrnkfqelmz4ggu2pygdxww3hupqv9x4mdjlar" style="font-size: 30px;"> HERE </a>
 
 ```
 NODENAME=<YOUR MONIKER HERE>
