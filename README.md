@@ -3,7 +3,7 @@
 
 <h1>
 <div id="header" align="center">
-  <img src="https://github.com/madnoder/PlanQ/blob/main/planq-logo.svg" style="max-width: 100%;"></a></p>
+  <img src="https://github.com/madnoder/PlanQ/blob/main/planq-logo.svg" style="max-width: 60%;"></a></p>
 </div>
 
 ## Off Link:
