@@ -3,11 +3,11 @@
 
 <h1>
 <div id="header" align="center">
-  <img src="https://github.com/madnoder/PlanQ/blob/main/planq-logo.svg" style="max-width: 60%;"></a></p>
+  <img src="https://github.com/madnoder/PlanQ/blob/main/planq-logo.svg" style="max-width: 30%;"></a></p>
 </div>
 
 ## Off Link:
-<a href="https://discord.gg/planq-network"> <p style="font-size:55px;color:red;"> Discord </p> </a>
+<a href="https://discord.gg/planq-network" style="font-size: 30px;"> Discord </p> </a>
 <a href="https://planq.network/" style="font-size: 30px;"> Website </a>
 
 You can also delegate to my validator with 100% uptime.
