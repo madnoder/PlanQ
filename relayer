@@ -76,3 +76,9 @@ hermes tx ft-transfer --timeout-height-offset 10 --number-msgs 1 --dst-chain sec
 ```
 hermes tx ft-transfer --timeout-height-offset 10 --number-msgs 1 --dst-chain stride-1 --src-chain planq_7070-2 --src-port transfer --src-channel channel-8 --amount 1 --denom aplanq
 ```
+```
+hermes config auto --output ~/example_config.toml --chains quicksilver
+```
+```
+hermes create channel --a-chain planq_7070-2 --b-chain crescent-1 --a-port transfer --b-port transfer --new-client-connection
+```
