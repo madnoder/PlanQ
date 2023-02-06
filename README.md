@@ -34,7 +34,8 @@ sudo apt install curl build-essential git wget jq make gcc tmux chrony -y
 ```
 ```
 cd $HOME
-git clone https://github.com/planq-network/planq.git && cd planq
+git clone https://github.com/planq-network/planq.git
+cd planq
 git checkout v1.0.3
 make install
 ```
