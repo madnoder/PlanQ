@@ -346,5 +346,5 @@ hermes tx ft-transfer --timeout-height-offset 10 --number-msgs 1 --dst-chain str
 hermes config auto --output ~/example_config.toml --chains quicksilver
 ```
 ```
-hermes create channel --a-chain planq_7070-2 --b-chain crescent-1 --a-port transfer --b-port transfer --new-client-connection
+hermes create channel --a-chain planq_7070-2 --b-chain quicksilver-2 --a-port transfer --b-port transfer --new-client-connection
 ```
