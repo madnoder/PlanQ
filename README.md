@@ -156,4 +156,14 @@ planqd tx staking edit-validator \
 ```
 sudo systemctl restart planqd && journalctl -u planqd -f --no-hostname -o cat
 ```
+```
+cd $HOME
+sudo systemctl stop planqd
+sudo systemctl disable planqd
+sudo rm /etc/systemd/system/planqd.service
+sudo systemctl daemon-reload
+rm -f $(which planqd)
+rm -rf $HOME/.planqd
+rm -rf $HOME/planq
+```
 
