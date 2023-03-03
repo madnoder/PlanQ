@@ -166,4 +166,23 @@ rm -f $(which planqd)
 rm -rf $HOME/.planqd
 rm -rf $HOME/planq
 ```
+```
 
+nibid tx staking create-validator \
+--amount 2000000unibi \
+--pubkey $(nibid tendermint show-validator) \
+--moniker "Mad as a hatter" \
+--identity "B08700D1C239CD1A" \
+--details "Cosmos validator" \
+--website "https://github.com/madnoder" \
+--chain-id nibiru-itn-1 \
+--commission-rate 0.08 \
+--commission-max-rate 0.20 \
+--commission-max-change-rate 0.01 \
+--min-self-delegation 1 \
+--from wallet \
+--gas-adjustment 1.4 \
+--gas auto \
+--gas-prices 0.025unibi \
+-y
+```
