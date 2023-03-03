@@ -171,10 +171,7 @@ rm -rf $HOME/planq
 nibid tx staking create-validator \
 --amount 2000000unibi \
 --pubkey $(nibid tendermint show-validator) \
---moniker "Mad as a hatter" \
---identity "B08700D1C239CD1A" \
---details "Cosmos validator" \
---website "https://github.com/madnoder" \
+--moniker "Chris" \
 --chain-id nibiru-itn-1 \
 --commission-rate 0.08 \
 --commission-max-rate 0.20 \
