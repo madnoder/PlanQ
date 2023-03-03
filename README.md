@@ -181,8 +181,6 @@ nibid tx staking create-validator \
 --commission-max-change-rate 0.01 \
 --min-self-delegation 1 \
 --from wallet \
---gas-adjustment 1.4 \
---gas auto \
---gas-prices 0.025unibi \
+--fees 5000unibi \
 -y
 ```
