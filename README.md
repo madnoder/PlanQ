@@ -182,6 +182,5 @@ nibid tx staking create-validator \
 --min-self-delegation 1 \
 --from wallet \
 --fees 5000unibi \
--s 2 \
 -y
 ```
