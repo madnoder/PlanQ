@@ -168,16 +168,3 @@ rm -rf $HOME/planq
 ```
 ```
 
-nibid tx staking create-validator \
---amount 2000000unibi \
---pubkey $(nibid tendermint show-validator) \
---moniker "Chris" \
---chain-id nibiru-itn-1 \
---commission-rate 0.08 \
---commission-max-rate 0.20 \
---commission-max-change-rate 0.01 \
---min-self-delegation 1 \
---from wallet \
---fees 5000unibi \
--y
-```
