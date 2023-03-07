@@ -1,0 +1,14 @@
+```
+cd $HOME
+rm -rf planq
+git clone https://github.com/planq-network/planq.git
+cd planq
+git checkout v1.0.5
+make build
+```
+```
+mkdir -p $HOME/.planqd/cosmovisor/upgrades/v1.0.5/bin
+mv build/planqd $HOME/.planqd/cosmovisor/upgrades/v1.0.5/bin/
+rm -rf build
+```
+
